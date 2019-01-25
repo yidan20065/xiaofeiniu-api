@@ -10,8 +10,8 @@ USE xiaofeiniu;
 #/**管理员信息表xfn_admin**/
 CREATE TABLE xfn_admin(
   aid  INT PRIMARY KEY AUTO_INCREMENT,
-  aname VARCHAR(32),
-  apwd  VARCHAR(32)
+  aname VARCHAR(32) UNIQUE,
+  apwd  VARCHAR(64)
 );
 
 #/**桌台信息表xfn_table**/
