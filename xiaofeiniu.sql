@@ -28,7 +28,8 @@ INSERT INTO xfn_table VALUES
 (NULL,'福满堂','6-8人桌',1),
 (NULL,'金镶玉','4人桌',3),
 (NULL,'寿齐天','10人桌',2),
-(NULL,'全家福','2人桌',0);
+(NULL,'东方红','4人桌',5),
+(NULL,'全家福','2人桌',4);
 
 #/**项目全局设置表xfn_settings**/
 CREATE TABLE xfn_settings(
@@ -50,24 +51,26 @@ CREATE TABLE xfn_resevation(
   contactName VARCHAR(64),
   phone       VARCHAR(16),
   contactTime BIGINT,
-  dinnerTime  BIGINT
+  dinnerTime  BIGINT,
+  tableId INT,
+  FOREIGN KEY(tableId) REFERENCES xfn_table(tid)
 );
 INSERT INTO xfn_resevation VALUES
-(NULL,'丁丁','13501234567',1548404840420,1548410400000),
-(NULL,'丫丫','13701234567',1548404840420,1548410400000),
-(NULL,'豆豆','13801234567',1548404840420,1548410400000),
-(NULL,'东东','15001234567',1548404840420,1548410400000);
+(NULL,'丁丁','13501234567',1548404840420,1548410400000,'1'),
+(NULL,'丫丫','13701234567',1548404840420,1548410400000,'2'),
+(NULL,'豆豆','13801234567',1548404840420,1548410400000,'3'),
+(NULL,'东东','15001234567',1548404840420,1548410400000,'4');
 #/**菜品分类表:xfn_category**/
 CREATE TABLE xfn_category(
   cid  INT PRIMARY KEY AUTO_INCREMENT,
   cname  VARCHAR(32)             
 );
 INSERT INTO xfn_category VALUES
-(NULL,'肉类'),
-(NULL,'海鲜河鲜'),
-(NULL,'丸滑类'),
-(NULL,'蔬菜豆制品'),
-(NULL,'菌菇类');
+(1,'肉类'),
+(2,'海鲜河鲜'),
+(3,'丸滑类'),
+(4,'蔬菜豆制品'),
+(5,'菌菇类');
 #/**菜品信息表:xfn_dish**/
 CREATE TABLE xfn_dish(
   did INT PRIMARY KEY AUTO_INCREMENT,
