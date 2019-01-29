@@ -3,6 +3,8 @@ const PORT = 8090;
 const express = require('express');
 const categoryRouter = require('./routes/admin/category');
 const adminRouter = require('./routes/admin/admin');
+const dishRouter = require('./routes/admin/dish');
+
 
 //引入中间件body-parser
 const bodyParser=require('body-parser');
@@ -21,3 +23,4 @@ app.use(bodyParser.json());
 //挂载路由器
 app.use('/admin/category',categoryRouter);
 app.use('/admin',adminRouter);
+app.use('/admin/dish',dishRouter);
