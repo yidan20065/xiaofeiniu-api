@@ -4,6 +4,8 @@ const express = require('express');
 const categoryRouter = require('./routes/admin/category');
 const adminRouter = require('./routes/admin/admin');
 const dishRouter = require('./routes/admin/dish');
+const settingsRouter = require('./routes/admin/settings');
+const tableRouter = require('./routes/admin/table');
 
 
 //引入中间件body-parser
@@ -24,3 +26,5 @@ app.use(bodyParser.json());
 app.use('/admin/category',categoryRouter);
 app.use('/admin',adminRouter);
 app.use('/admin/dish',dishRouter);
+app.use('/admin/settings',settingsRouter);
+app.use('/admin/table',tableRouter);
